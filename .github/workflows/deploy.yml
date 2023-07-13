@@ -1,0 +1,28 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to Surge
+        run: |
+          npm install --global surge
+          echo "${{ secrets.SURGE_TOKEN }}" | surge ./build 7habits-list.jijixx.com --token
