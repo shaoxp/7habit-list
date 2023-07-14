@@ -25,4 +25,4 @@ jobs:
       - name: Deploy to Surge
         run: |
           npm install --global surge
-          echo "${{ secrets.SURGE_TOKEN }}" | surge ./build 7habits-list.jijixx.com --token
+          surge ./build 7habits-list.jijixx.com --token ${{ secrets.SURGE_TOKEN }}
