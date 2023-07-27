@@ -1,7 +1,5 @@
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ProTip from "./components/ProTip";
 import StickyFooter from "./components/StickyFooter";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { AppGlobalProvider } from "./components/AppGlobalProvider";
